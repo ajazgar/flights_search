@@ -104,31 +104,33 @@
 </table>
 
 
-<div class="table-responsive" *ngIf="router.url === '/samochody/rezerwacja/' + carId">
-  <table class="table table-borderless">
-    <thead>
-    <tr>
-      <th scope="col">Samochód</th>
-      <th scope="col">Miasto</th>
-      <th scope="col">Opis</th>
-      <th scope="col">Data odbioru</th>
-      <th scope="col">Data zwrotu</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="col">{{carBrand}}</td>
-      <td class="col">{{place}}</td>
-      <td class="col">{{description}}</td>
-      <td class="col">{{receivingDate}}</td>
-      <td class="col">{{returnDate}}</td>
+<table class="table table-borderless" *ngIf="router.url === '/samochody/rezerwacja/' + carId">
+  <thead>
+  <tr>
+    <th scope="col">Samochód</th>
+    <th scope="col">Miasto</th>
+    <th scope="col">Opis</th>
+    <th scope="col">Data odbioru</th>
+    <th scope="col">Data zwrotu</th>
+    <th style="z-index: -1">
+      <span>{{carPrice}} PLN</span>
+      <app-btn-primary [btnText]="'Rezerwuj'" [routerLink]="['/samochody/booking/', carId]"></app-btn-primary>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td scope="col">{{carBrand}}</td>
+    <td scope="col">{{place}}</td>
+    <td scope="col">{{description}}</td>
+    <td scope="col">{{receivingDate}}</td>
+    <td scope="col">{{returnDate}}</td>
 
-      <td>
-        <span>{{carPrice}} PLN</span>
-        <app-btn-primary [btnText]="'Rezerwuj'" [routerLink]="['/samochody/booking/', carId]"></app-btn-primary>
-      </td>
-    </tr>
+    <td>
+      <span>{{carPrice}} PLN</span>
+      <app-btn-primary [btnText]="'Rezerwuj'" [routerLink]="['/samochody/booking/', carId]"></app-btn-primary>
+    </td>
+  </tr>
 
     </tbody>
   </table>
-</div>
